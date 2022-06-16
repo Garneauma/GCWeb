@@ -8,6 +8,25 @@ global:
   feedbackPath:
     en: "/sites/feedback/ajax/report-problem-en.html"
     fr: "/sites/feedback/ajax/report-problem-fr.html"
+  contextualFooter: # Contextual footer settings
+    title:
+      en: "[Contextual footer title]"
+      fr: "[Titre du menu contextuel]"
+    links: # List of links visible in the contextual footer
+      fr:
+        - url: "http://canada.ca/fr"
+          text: "Lien 1"
+        - url: "http://canada.ca/fr"
+          text: "Lien 2"
+        - url: "http://canada.ca/fr"
+          text: "Lien 3"
+      en:
+        - url: "http://canada.ca/en"
+          text: "Link 1"
+        - url: "http://canada.ca/en"
+          text: "Link 2"
+        - url: "http://canada.ca/en"
+          text: "Link 3"
 
 #
 # Page front matter defaults

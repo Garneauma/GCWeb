@@ -7,6 +7,12 @@
 	position: relative;
 	z-index: 5;
 
+	h3 {
+		color: #fff;
+		margin-bottom: 1em;
+		margin-top: 0;
+	}
+
 	a {
 		font-size: .875em;
 		text-decoration: none;
@@ -43,6 +49,28 @@
 		}
 	}
 
+	hr {
+		border-bottom: 3px solid #fff;
+		margin: 0 0 1.5em;
+		width: 2.25em;
+	}
+
+	.gc-contextual {
+		background-color: $bg-gcthemelight;
+
+		nav {
+			padding-bottom: 0;
+		}
+
+		a {
+			color: #fff;
+
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+
 	.landscape {
 		background: #26374a url(../assets/landscape.png) no-repeat right bottom;
 
@@ -72,8 +100,8 @@
 	}
 
 	nav {
-		padding-bottom: 2em;
-		padding-top: 2em;
+		padding-bottom: 1em;
+		padding-top: 1.4em;
 		position: relative;
 
 		li {
