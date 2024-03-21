@@ -1146,14 +1146,16 @@
 			"style": "The image has a thin grey border.",
 			"context": "To be used in the institutional landing page template.",
 			"schema": [
-				"Minister name",
-				"Minister title",
-				"Minister page URL",
-				"Minister image URL",
-				"Mandate letter text",
-				"Mandate letter URL",
-				"Briefing book text",
-				"Briefing book URL"
+				"Section title (type: STRING) - for example: Minister, President, Parliamentary secretary, Associate minister, Ombudsman, Management",
+				"Ministers (type: ARRAY)",
+				"Ministers > Name (type: STRING)",
+				"Ministers > Title (type: STRING)",
+				"Ministers > Page URL (type: STRING)",
+				"Ministers > Image URL (type: STRING)",
+				"Ministers > Mandate letter text (type: STRING)",
+				"Ministers > Mandate letter URL (type: STRING)",
+				"Ministers > Briefing book text (type: STRING)",
+				"Ministers > Briefing book URL (type: STRING)"
 			],
 			"mediaConsiderations": "Recommended image size: 200x250px."
 		}
@@ -1168,8 +1170,8 @@
 		"modified": "dct:modified"
 	},
 	"title": {
-		"en": "Most requested - Documentation and working example",
-		"fr": "En demande - Documentation et example pratique"
+		"en": "Most requested",
+		"fr": "En demande"
 	},
 	"description": {
 		"en": "Features top tasks related to the page it is on.",
