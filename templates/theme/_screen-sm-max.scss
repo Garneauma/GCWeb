@@ -1,0 +1,20 @@
+/*
+  WET-BOEW
+  @title: Theme template
+  @desc:  Styles specific to the theme template for GCWeb
+ */
+
+.gc-theme {
+	padding: 0;
+	width: auto;
+}
+
+.gc-theme-nav {
+	ul {
+		display: none;
+
+		&.active {
+			display: block;
+		}
+	}
+}

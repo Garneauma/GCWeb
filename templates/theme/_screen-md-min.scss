@@ -1,0 +1,35 @@
+/*
+  WET-BOEW
+  @title: Theme template
+  @desc:  Styles specific to the theme template for GCWeb
+*/
+
+.gc-theme {
+	display: flex;
+	margin: 0 auto;
+	padding: 0 15px;
+	width: 970px;
+}
+
+.gc-theme-nav {
+	border-right: 5px solid #26374a;
+	flex: 0 0 300px;
+
+	.container {
+		padding: 0;
+		width: auto;
+	}
+
+	.gc-theme-menu-btn {
+		display: none;
+	}
+}
+
+.gc-theme-content {
+	flex: 1 0 0%;
+
+	.container {
+		padding-left: 35px;
+		width: auto;
+	}
+}
