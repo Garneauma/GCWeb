@@ -155,14 +155,24 @@
 				"path": "gc-intro-fr.html"
 			},
 			{
-				"title": "Introduction block with image",
+				"title": "Introduction block with full-width image",
 				"language": "en",
-				"path": "gc-intro-image-en.html"
+				"path": "gc-intro-full-width-image-en.html"
 			},
 			{
-				"title": "Bloc d’introduction avec image",
+				"title": "Bloc d’introduction avec image pleine grandeur",
 				"language": "fr",
-				"path": "gc-intro-image-fr.html"
+				"path": "gc-intro-full-width-image-fr.html"
+			},
+			{
+				"title": "Introduction block with half-width image",
+				"language": "en",
+				"path": "gc-intro-half-width-image-en.html"
+			},
+			{
+				"title": "Bloc d’introduction avec image demi-largeur",
+				"language": "fr",
+				"path": "gc-intro-half-width-image-fr.html"
 			}
 		]
 	},

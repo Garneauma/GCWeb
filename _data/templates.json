@@ -1632,7 +1632,7 @@
 			"breaking": [
 				"Stabilization of the topic page template."
 			],
-			"detectableBy": ".page-type-topic"
+			"detectableBy": ".bg-norepeat.bg-half-width-right + .gc-most-requested + .container:has(.gc-servinfo)"
 		},
 		{
 			"@id": "_:iteration_topic_2",
@@ -1681,7 +1681,7 @@
 			"name": "Topic page",
 			"status": "stable",
 			"baseOnIteration": "_:iteration_topic_2",
-			"detectableBy": ".page-type-topic",
+			"detectableBy": ".bg-norepeat.bg-half-width-right + .gc-most-requested + .container:has(.gc-servinfo)",
 			"layout": [
 				"Intro block",
 				"Most requested - version 1",
