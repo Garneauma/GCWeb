@@ -103,6 +103,14 @@ $social-media-icons-size: 38px;
 				margin-bottom: $social-media-li-margin-bottom;
 			}
 
+			&.more-ways {
+				display: block;
+
+				a {
+					text-decoration: underline;
+				}
+			}
+
 			a {
 				display: flex;
 				line-height: 1.54;
@@ -149,10 +157,6 @@ $social-media-icons-size: 38px;
 						outline-offset: 1px;
 					}
 				}
-			}
-
-			.more-ways {
-				display: block;
 			}
 		}
 
