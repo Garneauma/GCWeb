@@ -1,6 +1,6 @@
 {
 	"@context": {
-		"@version": 2.1,
+		"@version": 1.1,
 		"dct": "http://purl.org/dc/terms/",
 		"title": { "@id": "dct:title", "@container": "@language" },
 		"description": { "@id": "dct:description", "@container": "@language" },
@@ -72,8 +72,10 @@
 			],
 			"history": [
 				{
-					"en": "July 2024 - Removed all occurences of parameters defined to false in the include commands.",
-					"fr": "Juillet 2024 - Suppression de toutes les occurrences des paramètres définis sur false dans les commandes include.",
+					"en": "July 2024 - Adding 'More ways to connect' optional link.",
+					"fr": "Juillet 2024 - Ajout du lien optionnel « D'autres moyens de rester en contact »."
+				},
+				{
 					"en": "February 2024 - Initial implementation of the variation.",
 					"fr": "Février 2024 - Implémentation initiale de la variante."
 				}
