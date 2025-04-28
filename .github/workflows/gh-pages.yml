@@ -1,0 +1,68 @@
+name: Build for gh-pages
+
+on:
+  push:
+    branches: dev-gh-pages
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+
+    environment: dev
+
+    strategy:
+      matrix:
+        node-version: [22.x]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: npm i -g bower grunt-cli
+      - run: npm ci
+
+      - name: Copy the missing _sprite_share.scss file - related to GCWeb#1737 about wet-boew#cc340a6 commit
+        run: |
+          curl https://gist.githubusercontent.com/duboisp/d69787b300eb1f4d40f937508e10d013/raw/86e7a0b15ad6a695754599e9793e986b460bf514/_sprites_share.scss >> _sprites_share.scss
+          mv _sprites_share.scss node_modules/wet-boew/src/plugins/share/sprites/_sprites_share.scss
+
+      - name: Checkout wet-boew latest build
+        run: |
+          git clone --depth 1 https://github.com/wet-boew/wet-boew-cdn.git --branch v4.0-dist ~wet-boew-cdn
+          mkdir -p node_modules/wet-boew/dist/wet-boew
+          rm -rf node_modules/wet-boew/dist/wet-boew/*
+          mv ~wet-boew-cdn/* node_modules/wet-boew/dist/wet-boew
+
+      - name: Build GCWeb
+        run: grunt build-gh-pages
+
+      - name: Git config
+        run: |
+          git config --global user.name "Service Canada bot"
+          git config --global user.email "bot@servicecanada.gc.ca"
+
+      # Overwrite all layout and includes and remove dist from .gitignore
+      - name: Update GCWeb Jekyll theme files
+        run: |
+          cp -R ~jekyll-dist/_includes/* _includes/
+          cp -R ~jekyll-dist/_layouts/* _layouts/
+          sed -i '/^dist\/$/s/^/#/' .gitignore
+          git add .
+          git commit -m "CD ${{ github.run_id }}: Update GCWeb jekyll theme files" --allow-empty
+
+      - name: Deploy to gh-pages branch
+        run: |
+          git add .
+          git commit -m "Deploy to gh-pages" --allow-empty
+
+      - name: Jekyll theme - Deploy
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          branch: gh-pages
+          force: true
+          github_token: ${{ secrets.my_token }}
+
