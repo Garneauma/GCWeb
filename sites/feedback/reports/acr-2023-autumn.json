@@ -1,5 +1,5 @@
 {
-  "@context": "https://wet-boew.github.io/vocab/context/2023/conformance-report-en.json-ld",
+  "@context": "https://wet-boew.github.io/vocab/context/2023/conformance-report-en.json",
 
   "@type": "acr:ConformanceReport",
   "dct:references": [
@@ -41,6 +41,7 @@
   },
 
   "dct:created": "2023-12-14",
+  "dct:modified": "2025-06-02",
   "dct:description": "Accessibility conformance report against WCAG 2.1 Level AA for the Page Feedback Tool.",
 
   "acr:standard": "https://www.w3.org/TR/WCAG21",
@@ -48,12 +49,26 @@
   "acr:conformance": "acr:satisfied",
   "acr:aggregatedScore": "100%",
 
-  "assessments": {
+  "acr:assessments": {
     "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json": {
       "dct:title": "Accessibility assessment #1 - Page feedback tool",
       "dct:references": "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-2-en.html",
       "dct:language": "en",
       "dct:date": "2023-10-30",
+      "@type": "acr:AssessmentReport"
+    },
+    "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-3.json": {
+      "dct:title": "Accessibility assessment #2 - CRA Usability testing",
+      "dct:references": "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-3.json",
+      "dct:language": "en",
+      "dct:date": "2024-07-01",
+      "@type": "acr:AssessmentReport"
+    },
+    "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json": {
+      "dct:title": "Accessibility assessment #3 - Page feedback tool",
+      "dct:references": "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json",
+      "dct:language": "en",
+      "dct:date": "2025-04-24",
       "@type": "acr:AssessmentReport"
     }
   },
@@ -110,6 +125,82 @@
             "earl:subject": "_subject"
         }
       ]
+    },
+    {
+      "earl:assertedBy": {
+        "foaf:name": "Marc-André Garneau (GitHub: @garneauma)",
+        "foaf:homepage": "https://github.com/garneauma",
+        "@type": ["earl:Assertor", "foaf:Person"]
+      },
+      "@type": ["acr:AuditReport", "earl:Assertion"],
+      "earl:mode": "earl:manual",
+      "acr:accuracy": "acr:falseNegative",
+      "acr:accuracy_technical_note": "Failures are not associated to any WCAG success cirterion, but includes a few usability recommendations.",
+      "dct:description": "This report is to evaluate and review the accuracy of the accessiblity assessment whether it fails or not WCAG.",
+      "dct:issued": "2025-06-02",
+      "acr:assessment": "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-3.json",
+      "acr:auditNote": [
+        {
+          "@type": "acr:AuditReportNote",
+          "acr:accuracy": "acr:falseNegative",
+          "dct:date": "2025-06-02",
+          "dct:title": "OS Magnification",
+          "dct:description": "Failure not supported by any specific WCAG criterion that describe a usability improvement need.",
+          "acr:severity": "acr:trivial",
+          "acr:relevancy": "wbv:acr#usability",
+          "earl:test": "WCAG21:perceivable",
+          "earl:outcome":"earl:passed",
+          "earl:subject": "_subject"
+        },
+        {
+          "@type": "acr:AuditReportNote",
+          "acr:accuracy": "acr:falseNegative",
+          "dct:date": "2025-06-02",
+          "dct:title": "TalkBack with Chrome",
+          "dct:description": "Failure not supported by any specific WCAG criterion that describe a usability and compatibility improvement need.",
+          "acr:severity": "acr:trivial",
+          "acr:relevancy": "wbv:acr/relevancies#compatibility-at",
+          "earl:test": "WCAG21:operable",
+          "earl:outcome":"earl:passed",
+          "earl:subject": "_subject"
+        },
+        {
+          "@type": "acr:AuditReportNote",
+          "acr:accuracy": "acr:falseNegative",
+          "dct:date": "2025-06-02",
+          "dct:title": "High contrast with OS Magnification",
+          "dct:description": "Failure not supported by any specific WCAG criterion that describe a usability and compatibility improvement need.",
+          "acr:severity": "acr:trivial",
+          "acr:relevancy": "wbv:acr#usability",
+          "earl:test": "WCAG21:perceivable",
+          "earl:outcome":"earl:passed",
+          "earl:subject": "_subject"
+        },
+        {
+          "@type": "acr:AuditReportNote",
+          "acr:accuracy": "acr:falseNegative",
+          "dct:date": "2025-06-02",
+          "dct:title": "Desktop Voice Control",
+          "dct:description": "This is only a comment.",
+          "acr:severity": "acr:trivial",
+          "acr:relevancy": "wbv:acr#comments",
+          "earl:test": "WCAG21:operable",
+          "earl:outcome":"earl:passed",
+          "earl:subject": "_subject"
+        },
+        {
+          "@type": "acr:AuditReportNote",
+          "acr:accuracy": "acr:falseNegative",
+          "dct:date": "2025-06-02",
+          "dct:title": "Desktop JAWS",
+          "dct:description": "This issue is not related to the Page feedback tool, but rather the Task Success Survey.",
+          "acr:severity": "acr:noSeverity",
+          "acr:relevancy": "wbv:acr#comments",
+          "earl:test": "WCAG21:understandable",
+          "earl:outcome":"earl:passed",
+          "earl:subject": "_subject"
+        }
+      ]
     }
   ],
 
@@ -133,7 +224,8 @@
       "acr:requirement": "WCAG21:non-text-content",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -145,7 +237,8 @@
       "acr:requirement": "WCAG21:audio-only-and-video-only-prerecorded",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -157,7 +250,8 @@
       "acr:requirement": "WCAG21:captions-prerecorded",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -169,7 +263,8 @@
       "acr:requirement": "WCAG21:audio-description-or-media-alternative-prerecorded",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -181,7 +276,8 @@
       "acr:requirement": "WCAG21:captions-live",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -193,7 +289,8 @@
       "acr:requirement": "WCAG21:audio-description-prerecorded",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -205,7 +302,8 @@
       "acr:requirement": "WCAG21:info-and-relationships",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -217,7 +315,8 @@
       "acr:requirement": "WCAG21:meaningful-sequence",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -229,7 +328,8 @@
       "acr:requirement": "WCAG21:sensory-characteristics",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -241,7 +341,8 @@
       "acr:requirement": "WCAG21:orientation",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -253,7 +354,8 @@
       "acr:requirement": "WCAG21:identify-input-purpose",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -265,7 +367,8 @@
       "acr:requirement": "WCAG21:use-of-color",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -277,7 +380,8 @@
       "acr:requirement": "WCAG21:audio-control",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -289,7 +393,8 @@
       "acr:requirement": "WCAG21:contrast-minimum",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -301,7 +406,8 @@
       "acr:requirement": "WCAG21:resize-text",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -313,7 +419,8 @@
       "acr:requirement": "WCAG21:image-of-text",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -325,7 +432,8 @@
       "acr:requirement": "WCAG21:reflow",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -337,7 +445,8 @@
       "acr:requirement": "WCAG21:non-text-contrast",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -349,7 +458,8 @@
       "acr:requirement": "WCAG21:text-spacing",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -361,7 +471,8 @@
       "acr:requirement": "WCAG21:content-on-hover-or-focus",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -373,7 +484,8 @@
       "acr:requirement": "WCAG21:keyboard",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -385,7 +497,8 @@
       "acr:requirement": "WCAG21:no-keyboard-trap",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -397,7 +510,8 @@
       "acr:requirement": "WCAG21:character-key-shortcuts",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -409,7 +523,8 @@
       "acr:requirement": "WCAG21:timing-adjustable",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -421,7 +536,8 @@
       "acr:requirement": "WCAG21:pause-stop-hide",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -433,7 +549,8 @@
       "acr:requirement": "WCAG21:three-flashes-or-below-threshold",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -445,7 +562,8 @@
       "acr:requirement": "WCAG21:bypass-blocks",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -457,7 +575,8 @@
       "acr:requirement": "WCAG21:page-titled",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -469,7 +588,8 @@
       "acr:requirement": "WCAG21:focus-order",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -481,7 +601,8 @@
       "acr:requirement": "WCAG21:link-purpose-in-context",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -493,7 +614,8 @@
       "acr:requirement": "WCAG21:multiple-ways",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -505,7 +627,8 @@
       "acr:requirement": "WCAG21:headings-and-labels",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -517,7 +640,8 @@
       "acr:requirement": "WCAG21:focus-visible",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -529,7 +653,8 @@
       "acr:requirement": "WCAG21:pointer-gestures",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -541,7 +666,8 @@
       "acr:requirement": "WCAG21:pointer-cancellation",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -553,7 +679,8 @@
       "acr:requirement": "WCAG21:label-in-name",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "See the audit note, after review this SC are satisfied.",
@@ -565,7 +692,8 @@
       "acr:requirement": "WCAG21:motion-actuation",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -577,7 +705,8 @@
       "acr:requirement": "WCAG21:language-of-page",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -589,7 +718,8 @@
       "acr:requirement": "WCAG21:language-of-parts",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -601,7 +731,8 @@
       "acr:requirement": "WCAG21:on-focus",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -613,7 +744,8 @@
       "acr:requirement": "WCAG21:on-input",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -625,7 +757,8 @@
       "acr:requirement": "WCAG21:consistent-navigation",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -637,7 +770,8 @@
       "acr:requirement": "WCAG21:consistent-identification",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -649,7 +783,8 @@
       "acr:requirement": "WCAG21:error-identification",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -661,7 +796,8 @@
       "acr:requirement": "WCAG21:labels-or-instructions",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -673,7 +809,8 @@
       "acr:requirement": "WCAG21:error-suggestion",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -685,7 +822,8 @@
       "acr:requirement": "WCAG21:error-prevention-legal-financial-data)",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -697,7 +835,8 @@
       "acr:requirement": "WCAG21:parsing",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -709,7 +848,8 @@
       "acr:requirement": "WCAG21:name-role-value",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "",
@@ -721,7 +861,8 @@
       "acr:requirement": "WCAG21:status-messages",
       "acr:conformance": "acr:satisfied",
       "acr:assessment": [
-        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json"
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/pre-a11y-2.json",
+        "https://wet-boew.github.io/GCWeb/sites/feedback/reports/a11y-4.json"
       ],
       "earl:subject": "_:subject",
       "dct:description": "See the audit note, after review this SC are satisfied.",
