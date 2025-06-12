@@ -27,7 +27,7 @@ var $document = wb.doc,
 
 			let themeMenuBtn = document.querySelector( "#menuBtn" ),
 				themeMenuIcon = themeMenuBtn.querySelector( ".glyphicon" ),
-				themeNavUL = document.querySelector( "#gridContainer > nav ul" )
+				themeNavUL = document.querySelector( "#gridContainer > nav ul" );
 
 			themeNavUL.id = themeNavUL.id || wb.getId();
 			themeMenuBtn.setAttribute( "aria-controls", themeNavUL.id );
@@ -36,7 +36,7 @@ var $document = wb.doc,
 
 			// Setting the current page's link attributes
 			$( themeNavUL ).trigger( "navcurr.wb" );
-			$( themeNavUL ).on( "wb-ready.wb-navcurr", function( event ) {
+			$( themeNavUL ).on( "wb-ready.wb-navcurr", function() {
 				let currentPage = themeNavUL.querySelector( ".wb-navcurr" );
 
 				currentPage.setAttribute( "aria-current", "page" );
