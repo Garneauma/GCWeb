@@ -39,7 +39,7 @@
 						}
 					}
 
-					&.active a::after {
+					a.wb-navcurr::after {
 						display: none;
 					}
 				}

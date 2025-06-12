@@ -27,14 +27,20 @@ var $document = wb.doc,
 
 			let themeMenuBtn = document.querySelector( "#menuBtn" ),
 				themeMenuIcon = themeMenuBtn.querySelector( ".glyphicon" ),
-				themeNavUL = document.querySelector( "#gridContainer > nav ul" ),
-				activePageLink = themeNavUL.querySelector( ".active a" );
+				themeNavUL = document.querySelector( "#gridContainer > nav ul" )
 
 			themeNavUL.id = themeNavUL.id || wb.getId();
-			activePageLink.setAttribute( "aria-current", "page" );
 			themeMenuBtn.setAttribute( "aria-controls", themeNavUL.id );
 			themeMenuBtn.setAttribute( "aria-expanded", "false" );
 			themeMenuIcon.setAttribute( "aria-hidden", "true" );
+
+			// Setting the current page's link attributes
+			$( themeNavUL ).trigger( "navcurr.wb" );
+			$( themeNavUL ).on( "wb-ready.wb-navcurr", function( event ) {
+				let currentPage = themeNavUL.querySelector( ".wb-navcurr" );
+
+				currentPage.setAttribute( "aria-current", "page" );
+			} );
 
 			// Identify that initialization has completed
 			wb.ready( $( elm ), componentName );

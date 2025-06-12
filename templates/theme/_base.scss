@@ -59,16 +59,14 @@
 					}
 				}
 
-				&.active {
-					a, a:hover {
-						background-color: #26374a;
-						color: #fff;
-					}
+				a.wb-navcurr, a.wb-navcurr:hover {
+					background-color: #26374a;
+					color: #fff;
+				}
 
-					a:focus {
-						outline: 5px auto #fff;
-						outline-offset: -5px;
-					}
+				a.wb-navcurr:focus {
+					outline: 5px auto #fff;
+					outline-offset: -5px;
 				}
 			}
 
