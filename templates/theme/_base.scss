@@ -25,9 +25,9 @@
 			a {
 				color: $link-color;
 				display: block;
-				font-size: 16px;
+				font-size: 1rem;
 				line-height: 1.65em;
-				padding: 10px 14px;
+				padding: .625rem 1rem;
 				text-decoration: none;
 
 				&:hover {
@@ -49,6 +49,12 @@
 		}
 	}
 
+	#theme-nav-dialog {
+		button {
+			display: none;
+		}
+	}
+
 	#menu-btn {
 		border-radius: 0;
 		display: block;
@@ -56,12 +62,12 @@
 		text-align: left;
 		width: calc(100% + 30px);
 
-		.glyphicon-chevron-down {
-			margin-left: 10px;
+		.glyphicon-chevron-left {
+			margin-right: 10px;
 		}
 
-		&.expanded .glyphicon-chevron-down {
-			transform: rotate(180deg) translateY(2px);
+		&.expanded .glyphicon-chevron-left {
+			display: none;
 		}
 
 		// Les items du menu sont affichés par défaut en mode basic HTML, donc il n'est pas nécessaire d'afficher le bouton menu car il ne sera pas fonctionnel
@@ -73,7 +79,7 @@
 	main {
 		h1#wb-cont {
 			border: none;
-			font-size: 1.625rem;
+			font-size: 1.81rem;
 			line-height: 1.1;
 			margin: 10px 0 11.5px;
 		}
@@ -100,7 +106,7 @@
 				background-color: #fff;
 				border-radius: 0;
 				margin-top: 2rem;
-				padding: 1rem 1.5rem;
+				padding: 1.25rem 1.5rem 1.5rem;
 				position: relative;
 
 				h3 {
@@ -115,6 +121,12 @@
 				h2 {
 					margin-top: 1.5rem;
 				}
+			}
+		}
+
+		.gc-features {
+			h2 {
+				font-size: 1.625rem;
 			}
 		}
 	}

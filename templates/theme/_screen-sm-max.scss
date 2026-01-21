@@ -6,6 +6,30 @@
 
 .page-type-theme {
 	#theme-nav {
+		&:has(#menu-btn.expanded) {
+			#theme-nav-dialog {
+				background: #fff;
+				bottom: 0;
+				left: 0;
+				overflow: auto;
+				padding: 1rem;
+				position: fixed;
+				right: 0;
+				top: 0;
+				z-index: 999;
+
+				button {
+					display: block;
+					margin-bottom: 1rem;
+				}
+			}
+
+			ul {
+				display: block;
+			}
+		}
+
+
 		ul {
 			display: none;
 
@@ -27,6 +51,8 @@
 						top: 50%;
 						transform: translateY(-50%);
 					}
+
+					padding-right: 1.5rem;
 				}
 
 				&.active a::after {
@@ -34,9 +60,5 @@
 				}
 			}
 		}
-	}
-
-	#menu-btn.expanded + ul {
-		display: block;
 	}
 }
