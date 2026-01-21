@@ -11,6 +11,13 @@ var $document = wb.doc,
 	componentName = "page-type-theme",
 	selector = "." + componentName,
 	initEvent = "wb-init " + selector,
+	themeMenuBtn,
+	themeNav,
+	themeNavUL,
+	themeNavDialog,
+	focusableElements,
+	firstFocusable,
+	lastFocusable,
 
 	/**
 	 * @method init
@@ -24,25 +31,70 @@ var $document = wb.doc,
 		var elm = wb.init( event, componentName, selector );
 
 		if ( elm && event.currentTarget === event.target ) {
+			themeMenuBtn = document.querySelector( "#menu-btn" );
+			themeNav = document.querySelector( "#theme-nav" );
+			themeNavUL = themeNav.querySelector( "ul" );
+			themeNavDialog = themeNav.querySelector( "#theme-nav-dialog" );
+			focusableElements = themeNavDialog.querySelectorAll( "a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex='-1'])" );
+			firstFocusable = focusableElements[ 0 ];
+			lastFocusable = focusableElements[ focusableElements.length - 1 ];
 
-			let themeMenuBtn = document.querySelector( "#menu-btn" ),
-				themeMenuIcon = themeMenuBtn.querySelector( ".glyphicon" ),
-				$themeNav = $( "#theme-nav" ),
-				themeNavUL = document.querySelector( "#theme-nav ul" );
-
-
-			themeNavUL.id = themeNavUL.id || wb.getId();
-			$themeNav.trigger( "navcurr.wb" ); // Highlight the current page in the menu
-			themeMenuBtn.setAttribute( "aria-controls", themeNavUL.id );
+			// Set attributes
+			themeNavDialog.id = themeNavDialog.id || wb.getId();
+			themeMenuBtn.setAttribute( "aria-controls", themeNavDialog.id );
 			themeMenuBtn.setAttribute( "aria-expanded", "false" );
-			themeMenuIcon.setAttribute( "aria-hidden", "true" );
+			themeMenuBtn.setAttribute( "aria-haspopup", "dialog" );
 
-			if ( themeNavUL.querySelector( ".wb-navcurr" ) ) {
-				themeNavUL.querySelector( ".wb-navcurr" ).setAttribute( "aria-current", "page" );
+			// Highlight the current page in the menu
+			$( themeNav ).trigger( "navcurr.wb" );
+			themeNavUL.querySelector( ".wb-navcurr" )?.setAttribute( "aria-current", "page" );
+
+			// Add dialog role if on smaller screens
+			if ( window.matchMedia( "(max-width: 991px)" ).matches ) {
+				themeNavDialog.setAttribute( "role", "dialog" );
 			}
 
 			// Identify that initialization has completed
 			wb.ready( $( elm ), componentName );
+		}
+	},
+	showMenu = function() {
+		themeMenuBtn.setAttribute( "aria-expanded", "true" );
+		themeMenuBtn.classList.add( "expanded" );
+		themeNavDialog.setAttribute( "open", "" );
+		document.body.style.position = "fixed";
+		document.addEventListener( "keydown", trapFocus ); // Activate focus trap
+		themeNavDialog.querySelector( "button" ).focus();
+	},
+	hideMenu = function() {
+		themeMenuBtn.setAttribute( "aria-expanded", "false" );
+		themeMenuBtn.classList.remove( "expanded" );
+		themeNavDialog.removeAttribute( "open" );
+		document.body.style.position = "";
+		document.removeEventListener( "keydown", trapFocus ); // Remove focus trap
+		themeMenuBtn.focus();
+	},
+	trapFocus = function( e ) {
+		if ( e.key === "Escape" ) {
+			hideMenu();
+			return;
+		}
+
+		if ( e.key !== "Tab" ) {
+			return;
+		}
+
+		// Shift + Tab, else Tab
+		if ( e.shiftKey ) {
+			if ( document.activeElement === firstFocusable ) {
+				e.preventDefault();
+				lastFocusable.focus();
+			}
+		} else {
+			if ( document.activeElement === lastFocusable ) {
+				e.preventDefault();
+				firstFocusable.focus();
+			}
 		}
 	};
 
@@ -50,17 +102,23 @@ var $document = wb.doc,
 $document.on( "timerpoke.wb " + initEvent, selector, init );
 
 // On click of the menu button
-$document.on( "click", "#menu-btn", function( event ) {
-	let themeMenuBtn = event.currentTarget;
-
-	if ( themeMenuBtn.getAttribute( "aria-expanded" ) === "true" ) {
-		themeMenuBtn.setAttribute( "aria-expanded", "false" );
-		themeMenuBtn.classList.remove( "expanded" );
-	} else {
-		themeMenuBtn.setAttribute( "aria-expanded", "true" );
-		themeMenuBtn.classList.add( "expanded" );
-	}
+$document.on( "click", "#menu-btn", function() {
+	showMenu();
 } );
+
+// On click of the close button
+$document.on( "click", "#theme-nav-dialog > button", function() {
+	hideMenu();
+} );
+
+// Add dialog role if on smaller screens, remove if not
+window.onresize = function() {
+	if ( window.matchMedia( "(max-width: 991px)" ).matches ) {
+		themeNavDialog.setAttribute( "role", "dialog" );
+	} else {
+		themeNavDialog.removeAttribute( "role" );
+	}
+};
 
 // Add the timer poke to initialize the plugin
 wb.add( selector );
