@@ -1,0 +1,46 @@
+{
+	"@context": {
+		"@version": 1.1,
+		"dct": "http://purl.org/dc/terms/",
+		"title": { "@id": "dct:title", "@container": "@language" },
+		"description": { "@id": "dct:description", "@container": "@language" },
+		"modified": "dct:modified"
+	},
+	"title": {
+		"en": "MapML",
+		"fr": "MapML"
+	},
+	"description": {
+		"en": "Displays a dynamic map over which information from additional sources can be overlaid.",
+		"fr": "Affiche une carte dynamique sur laquelle des informations provenant de sources supplémentaires peuvent être superposées."
+	},
+	"modified": "2026-03-25",
+	"componentName": "mapml",
+	"status": "stable",
+	"pages": {
+		"examples": [
+			{
+				"title": "MapML",
+				"language": "en",
+				"path": "mapml-en.html"
+			},
+			{
+				"title": "MapML",
+				"language": "fr",
+				"path": "mapml-fr.html"
+			}
+		],
+		"docs": [
+			{
+				"title": "MapML",
+				"language": "en",
+				"path": "mapml-doc-en.html"
+			},
+			{
+				"title": "MapML",
+				"language": "fr",
+				"path": "mapml-doc-fr.html"
+			}
+		]
+	}
+}

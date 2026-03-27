@@ -1,0 +1,32 @@
+---
+{
+	"altLangPage": "mapml-fr.html",
+	"dateModified": "2026-03-25",
+	"description": "Working examples for the MapML component.",
+	"language": "en",
+	"title": "MapML",
+	"breadcrumbs": [
+		{ "title": "MapML - Documentation", "link": "components/mapml/mapml-doc-en.html" }
+	],
+	"pageclass": "wb-prettify all-pre"
+}
+---
+
+<p>Here are a few examples of MapML maps integrations.</p>
+
+<h2>Basic map without points</h2>
+<mapml-viewer projection="CBMTILE" zoom="3" lat="62.7" lon="-90.3" controls>
+  <map-layer label="CBMT" src="https://maps.geogratis.gc.ca/wms/CBMT?service=wms&version=1.3.0&request=GetCapabilities&_gl=1*1se2k49*_ga*MjEzMjI0MjIyMS4xNzQxNjk2NzIw*_ga_C2N57Y7DX5*czE3NzQ1NTAwNDEkbzkkZzEkdDE3NzQ1NTAwNjIkajM5JGwwJGgw" checked></map-layer>
+</mapml-viewer>
+
+<h2>OSM Basemap</h2>
+<mapml-viewer width="800" height="400" projection="OSMTILE" zoom="1" lat="60.0" lon="-100.0" controls>
+	<map-layer label="OpenStreetMap" src="https://maps4html.org/web-map-doc/demo/data/osm.mapml" checked></map-layer>
+</mapml-viewer>
+
+<details>
+	<summary>Code sample</summary>
+	<pre><code>&lt;mapml-viewer zoom="2" lat="67.6" lon="-100.9" width="400" height="300" controls>
+	&lt;map-layer src="https://geogratis.gc.ca/mapml/en/osmtile/osm/" label="Open Street Map" checked >&lt;/map-layer>
+&lt;/mapml-viewer></code></pre>
+</details>
