@@ -14,10 +14,10 @@
 		"en": "Indicates the date on which the current page was last modified.",
 		"fr": "Indique la date à laquelle la page courante a été modifiée pour la dernière fois."
 	},
-	"modified": "2024-07-11",
+	"modified": "2026-04-15",
 	"componentName": "date-modified",
 	"status": "stable",
-	"version": "1.0",
+	"version": "2.0",
 	"pages": {
 		"docs": [
 			{
@@ -56,7 +56,7 @@
 				"en": "https://design.canada.ca/common-design-patterns/date-modified.html",
 				"fr": "https://conception.canada.ca/configurations-conception-communes/date-modification.html"
 			},
-			"iteration": "_:iteration_dtmd_1",
+			"iteration": "_:iteration_dtmd_2",
 			"example": [
 				{
 					"en": { "href": "../../content-page/content-en.html", "text": "Content page (date modified at bottom of page)" },
@@ -68,6 +68,10 @@
 			],
 			"history": [
 				{
+					"en": "April 2026 - Leverage gcds-date-modified component.",
+					"fr": "Avril 2026 - Tirer parti du composant gcds-date-modified."
+				},
+				{
 					"en": "June 2014 - Initial implementation of the variation.",
 					"fr": "Juin 2014 - Implémentation initiale de la variante."
 				}
@@ -77,7 +81,7 @@
 	"implementation": [
 		{
 			"@id": "_:implement_dtmd",
-			"iteration": "_:iteration_dtmd_1",
+			"iteration": "_:iteration_dtmd_2",
 			"name": {
 				"en": "Standard",
 				"fr": "Standard"
@@ -88,12 +92,12 @@
 			},
 			"instructions": {
 				"en": [
-					"Create a <code>&lt;dl id=\"wb-dtmd\"></code>.",
-					"Inside the above <code>&lt;dl></code>,<ol><li>create a <code>&lt;dt>Date modified:&lt;/dt></code>.</li><li>create a <code>&lt;dd>&lt;time property=\"dateModified\">[YYYY-MM-DD]&lt;time>&lt;/dd></code>, where [YYYY-MM-DD] is the date the current page was last updated. For example: 2023-11-03.</li></ol>"
+					"Create a <gcds-date-modified></gcds-date-modified>.",
+					"Inside the above <code>&lt;gcds-date-modified></code>, add the date the current page was last updated in the format [YYYY-MM-DD]. For example: 2023-11-03."
 				],
 				"fr": [
-					"Créez un <code>&lt;dl id=\"wb-dtmd\"></code>.",
-					"À l'intérieur de ce <code>&lt;dl></code>,<ol><li>créez un <code>&lt;dt>Date de modification&nbsp;:&lt;/dt></code>.</li><li>créez un <code>&lt;dd>&lt;time property=\"dateModified\">[AAAA-MM-JJ]&lt;time>&lt;/dd></code>, où [AAAA-MM-JJ] est la date à laquelle la page courante a été modifiée pour la dernière fois. Par exemple: 2023-11-03.</li></ol>"
+					"Créer une <gcds-date-modified></gcds-date-modified>.",
+					"À l'intérieur de la <code>&lt;gcds-date-modified></code> ci-dessus, ajoutez la date à laquelle la page actuelle a été mise à jour pour la dernière fois au format [YYYY-MM-DD]. Par exemple&nbsp;: 2023-11-03."
 				]
 			},
 			"sample": {
@@ -101,14 +105,14 @@
 					{
 						"@type": "source-code",
 						"description": "Code sample:",
-						"code": "<dl id=\"wb-dtmd\">\n\t<dt>Date modified:</dt>\n\t<dd><time property=\"dateModified\">YYYY-MM-DD</time></dd>\n</dl>"
+						"code": "<gcds-date-modified>YYYY-MM-DD</gcds-date-modified>"
 					}
 				],
 				"fr": [
 					{
 						"@type": "source-code",
 						"description": "Exemple de code&nbsp;:",
-						"code": "<dl id=\"wb-dtmd\">\n\t<dt>Date de modification&nbsp;:</dt>\n\t<dd><time property=\"dateModified\">YYYY-MM-DD</time></dd>\n</dl>"
+						"code": "<gcds-date-modified>YYYY-MM-DD</gcds-date-modified>"
 					}
 				]
 			}
@@ -116,10 +120,32 @@
 	],
 	"iteration": [
 		{
+			"@id": "_:iteration_dtmd_2",
+			"name": "GCDS date modified",
+			"date": "2026-04",
+			"detectableBy": "#wb-dtmd",
+			"predecessor": "_:iteration_dtmd_1",
+			"assets": [
+				{
+					"@type": "source-code",
+					"@language": "en",
+					"description": "Code sample",
+					"code": "<gcds-date-modified>YYYY-MM-DD</gcds-date-modified>"
+				},
+				{
+					"@type": "source-code",
+					"@language": "fr",
+					"description": "Exemple de code",
+					"code": "<gcds-date-modified>YYYY-MM-DD</gcds-date-modified>"
+				}
+			]
+		},
+		{
 			"@id": "_:iteration_dtmd_1",
 			"name": "Date modified - Iteration 1",
 			"date": "2014-06",
 			"detectableBy": "#wb-dtmd",
+			"successor": "_:iteration_dtmd_2",
 			"assets": [
 				{
 					"@type": "source-code",

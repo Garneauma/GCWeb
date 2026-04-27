@@ -14,9 +14,9 @@
 		"en": "Page layout using the GCDS header and footer components.",
 		"fr": "Disposition de la page utilisant les composants d'en-tête et de pied de page GCDS."
 	},
-	"modified": "2025-11-17",
+	"modified": "2026-04-15",
 	"componentName": "gcds-layout",
-	"status": "stable",
+	"status": "provisional",
 	"version": "1.0",
 	"pages": {
 		"examples": [

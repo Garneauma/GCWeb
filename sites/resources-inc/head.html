@@ -1,4 +1,4 @@
-{%- if site.global.gcds and site.global.gcds != false -%}
+{%- if site.global.gcds and site.global.gcds != false or page.loadGCDS or page.layout == "gcds" -%}
 	{%- capture gcds-version -%}
 		{%- if site.global.gcds == true -%}
 			latest
@@ -8,11 +8,9 @@
 	{%- endcapture -%}
 
 <!-- GC Design System -->
-<link rel="stylesheet" href="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@{{ gcds-version }}/dist/gcds/gcds.css">
-<script type="module" src="https://cdn.design-system.alpha.canada.ca/@cdssnc/gcds-components@{{ gcds-version }}/dist/gcds/gcds.esm.js"></script>
-{% endif %}
-{%- if page.loadGCDS or page.layout == "gcds" -%}
-<script blocking="render" src="{{ setting-resourcesBasePathTheme }}/js/gcdsloader{{ setting-minifiedSuffix }}.js"></script>
+<link rel="stylesheet" href="https://cdn.design-system.canada.ca/@gcds-core/components@{{ gcds-version }}/dist/gcds/gcds.css">
+<link rel="stylesheet" href="https://cdn.design-system.canada.ca/@gcds-core/css-shortcuts@{{ gcds-version }}/dist/gcds-css-shortcuts.min.css" />
+<script type="module" src="https://cdn.design-system.canada.ca/@gcds-core/components@{{ gcds-version }}/dist/gcds/gcds.esm.js"></script>
 {% endif %}
 
 <link href="{{ setting-resourcesBasePathTheme }}/assets/favicon.ico" rel="icon" type="image/x-icon" />

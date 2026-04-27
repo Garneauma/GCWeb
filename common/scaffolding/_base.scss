@@ -79,3 +79,31 @@ pre {
 blockquote {
 	font-size: 1em;
 }
+
+/* Lists */
+ul, ol {
+    padding-inline-start: 40px;
+}
+
+ul {
+	list-style-type: disc;
+}
+
+ol {
+	list-style-type: decimal;
+}
+
+:is(dir, menu, ol, ul) {
+	ul {
+		list-style-type: circle;
+	}
+
+	:is(dir, menu, ol, ul) ul {
+		list-style-type: square;
+	}
+}
+
+:is(dir, dl, menu, ol, ul) ul {
+    margin-block-start: 0px;
+    margin-block-end: 0px;
+}

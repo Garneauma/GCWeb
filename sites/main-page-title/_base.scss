@@ -7,6 +7,10 @@ h1#wb-cont, hgroup#wb-cont h1 {
 	border-left-width: 0;
 	border-right-width: 0;
 	border-top-width: 0;
+
+	&::after {
+		display: none;
+	}
 }
 
 h1#wb-cont[dir="rtl"], hgroup#wb-cont[dir="rtl"] h1, [dir="rtl"] h1#wb-cont, [dir="rtl"] hgroup#wb-cont h1 {
