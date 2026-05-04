@@ -1,0 +1,249 @@
+---
+{
+	"title": "Office of the Correctional Investigator",
+	"language": "en",
+	"category": "templates",
+	"altLangPage": "oci-homepage-fr.html",
+	"dateModified": "2025-11-17",
+	"layout": "null"
+}
+---
+
+{%- include variable-core.liquid -%}
+{%- capture page-title -%}
+{%- if page.title -%}
+{{ page.title }}
+{%- else -%}
+Page untitled
+{%- endif -%}
+{%- endcapture -%}
+
+<!DOCTYPE html>
+<html class="no-js" lang="{{ i18nText-lang | default: 'en' }}" dir="{{ i18nText-langDir | default: 'ltr' }}">
+
+<head>
+	<meta charset="utf-8">
+	{% include license.html %}
+	<title>{{ page-title }} - {{ i18nText-siteTitle }}</title>
+	<meta content="width=device-width, initial-scale=1" name="viewport">
+	{% include metadata.html %}
+	{% include resources-inc/head.html %}
+	<style>
+		#wb-bnr + hr { border-top: 1px solid #d9d9d9; }
+	</style>
+</head>
+
+<body {% if page.pageclass %}class="{{ page.pageclass }}" {% endif %}vocab="http://schema.org/" typeof="WebPage">
+	{% include skiplinks/skiplinks.html %}
+	<header>
+		<div id="wb-bnr" class="container">
+			<div class="row">
+				<section id="wb-lng" class="col-xs-3 col-sm-12 pull-right text-right">
+					<h2 class="wb-inv">Language selection</h2>
+					<ul class="list-inline mrgn-bttm-0">
+						<li>
+							<a lang="fr" hreflang="fr" href="oci-homepage-fr.html">
+								<span class="hidden-xs" translate="no">Français</span>
+								<abbr title="Français" translate="no" class="visible-xs h3 mrgn-tp-sm mrgn-bttm-0 text-uppercase">fr</abbr>
+							</a>
+						</li>
+					</ul>
+				</section>
+				<div class="brand col-xs-9 col-sm-5 col-md-4" property="publisher" typeof="GovernmentOrganization">
+					<a href="https://wet-boew.github.io/GCWeb/" property="url">
+						<img src="logo-main_0.jpg" alt="Office of the Correctional Investigator" property="logo" /><span class="wb-inv"> / <span lang="fr">Bureau de l'enquêteur correctionnel</span></span>
+					</a>
+					<meta property="name" content="Office of the Correctional Investigator">
+					<meta property="areaServed" typeof="Country" content="Canada" />
+					<link property="logo" href="logo-main_0.jpg" />
+				</div>
+				<section id="wb-srch" class="col-lg-offset-4 col-md-offset-4 col-sm-offset-2 col-xs-12 col-sm-5 col-md-4">
+					<h2>Search</h2>
+					<form action="https://www.canada.ca/en/sr/srb.html" method="get" name="cse-search-box" role="search">
+						<div class="form-group wb-srch-qry">
+							<label for="wb-srch-q" class="wb-inv">Search OCI</label>
+							<input id="wb-srch-q" list="wb-srch-q-ac" class="wb-srch-q form-control" name="q" type="search" value="" size="34" maxlength="170" placeholder="Search OCI" />
+							<datalist id="wb-srch-q-ac"></datalist>
+						</div>
+						<div class="form-group submit">
+							<button type="submit" id="wb-srch-sub" class="btn btn-primary btn-small" name="wb-srch-sub">
+								<span class="glyphicon-search glyphicon"></span>
+								<span class="wb-inv">Search</span>
+							</button>
+						</div>
+					</form>
+				</section>
+			</div>
+		</div>
+		<hr>
+		<gcds-top-nav label="Main navigation" alignment="end">
+			<gcds-nav-link href="#home" slot="home">Home</gcds-nav-link>
+			<gcds-nav-group  open-trigger="About OCI" menu-label="About OCI">
+				<gcds-nav-link href="#">Our Mission and Context</gcds-nav-link>
+				<gcds-nav-link href="#">Correctional Investigator of Canada</gcds-nav-link>
+				<gcds-nav-link href="#">Acts, Regulations and Policies</gcds-nav-link>
+				<gcds-nav-link href="#">Transparency</gcds-nav-link>
+				<gcds-nav-link href="#">Corporate Plan and Reports</gcds-nav-link>
+				<gcds-nav-link href="#">The Ed McIsaac Award</gcds-nav-link>
+				<gcds-nav-link href="#">Contact Us</gcds-nav-link>
+			</gcds-nav-group>
+			<gcds-nav-group  open-trigger="Reporting Priorities" menu-label="Reporting Priorities">
+				<gcds-nav-link href="#">Physical and Mental Health Care</gcds-nav-link>
+				<gcds-nav-link href="#">Equity, Diversity, and Inclusion</gcds-nav-link>
+				<gcds-nav-link href="#">Women's Corrections</gcds-nav-link>
+				<gcds-nav-link href="#">Indigenous Corrections</gcds-nav-link>
+				<gcds-nav-link href="#">Deaths in Custody and Mandated Reviews</gcds-nav-link>
+				<gcds-nav-link href="#">Release and Reintegration</gcds-nav-link>
+				<gcds-nav-link href="#">Conditions of Confinement</gcds-nav-link>
+				<gcds-nav-link href="#">Institutional Security and Safety</gcds-nav-link>
+			</gcds-nav-group>
+			<gcds-nav-group  open-trigger="Resources" menu-label="Resources">
+				<gcds-nav-link href="#">Media Room</gcds-nav-link>
+				<gcds-nav-link href="#">Annual Reports</gcds-nav-link>
+				<gcds-nav-link href="#">Other Reports</gcds-nav-link>
+				<gcds-nav-link href="#">Photo Gallery</gcds-nav-link>
+			</gcds-nav-group>
+
+			<gcds-nav-link href="#">Make a Complaint</gcds-nav-link>
+		</gcds-top-nav>
+	</header>
+
+	<main property="mainContentOfPage" resource="#wb-main" typeof="WebPageElement">
+		<div class="text-white" style="background-color:#155985">
+			<div class="container py-3">
+				<div class="row d-flex align-items-center">
+					<div class="col-xs-12 col-md-4">
+						<img src="https://oci-bec.gc.ca/sites/default/files/styles/large/public/2024-06/logo_light_blue.png" alt="Office of the Correctional Investigator Logo" class="img-responsive">
+					</div>
+					<div class="col-xs-12 col-md-8">
+						<h1 property="name" id="wb-cont" class="mt-0">Office of the Correctional Investigator</h1>
+						<p class="mrgn-tp-md">Independent Ombuds and Oversight of Federal Corrections in Canada</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<section class="gc-featured-link" data-bg-color="#608000">
+			<div class="container">
+				<h2 class="wb-inv">Spotlight on</h2>
+				<p><a class="stretched-link" href="#">Do you need information to file a complaint? Find the information you need</a></p>
+			</div>
+		</section>
+
+		<div class="container">
+			<h2 class="h3">Latest</h2>
+			<gcds-grid tag="article" columns-desktop="1fr 1fr 1fr" columns-tablet="1fr 1fr" columns="1fr">
+				<gcds-card img-src="https://oci-bec.gc.ca/sites/default/files/default_images/default-report-image_0.png" card-title="Office of the Correctional Investigator Annual Report 2024-25" card-title-tag="h3" href="#"></gcds-card>
+				<gcds-card img-src="https://oci-bec.gc.ca/sites/default/files/default_images/default-report-image_0.png" card-title="Correctional Investigator’s 2024-25 Annual Report calls for significant reform..." card-title-tag="h3" href="#"></gcds-card>
+				<gcds-card img-src="https://oci-bec.gc.ca/sites/default/files/default_images/default-report-image_0.png" card-title="Bouchard (Phoenix pay system) class action settlement" card-title-tag="h3" href="#"></gcds-card>
+			</gcds-grid>
+		</div>
+
+		<section class="gc-srvinfo mt-5">
+			<div class="container">
+				<h2>Explore OCI's Reporting Priorities</h2>
+				<div class="wb-eqht row">
+					<div class="col-xs-12 col-md-6">
+						<h3><a href="#">Physical and Mental Health Care</a></h3>
+						<p>The Correctional Service of Canada must provide essential health care in conformity with professionally accepted standards. From substance abuse and mental health services to physical well-being, health care continues to be a top concern.</p>
+					</div>
+					<div class="col-xs-12 col-md-6">
+						<h3><a href="#">Equity, Diversity, and Inclusion</a></h3>
+						<p>Prisons often reflect the systemic inequalities and discrimination in society, from the over-representation of black people, to barriers faced by gender diverse individuals, religious minorities, and the elderly.</p>
+					</div>
+					<div class="col-xs-12 col-md-6">
+						<h3><a href="#">Women's Corrections</a></h3>
+						<p>Women's corrections is a separate and unique area of correctional policy and practice, and a corporate priority for the Office of the Correctional Investigator.</p>
+					</div>
+					<div class="col-xs-12 col-md-6">
+						<h3><a href="#">Indigenous Corrections</a></h3>
+						<p>Indigenous Peoples are over-represented in Canadian prisons. OCI reporting focuses on systemic barriers and disparate outcomes for Indigenous individuals under federal sentence.</p>
+					</div>
+					<div class="col-xs-12 col-md-6">
+						<h3><a href="#">Deaths in Custody and Mandated Reviews</a></h3>
+						<p>The Correctional Service of Canada must ensure safe and humane custody. Deaths, serious bodily injuries, and use-of-force incidents in federal prisons are subject to mandated reviews conducted by the Office of the Correctional Investigator.</p>
+					</div>
+					<div class="col-xs-12 col-md-6">
+						<h3><a href="#">Release and Reintegration</a></h3>
+						<p>The purpose of Canada's correctional system includes the reintegration and supervision of offenders in the community as law-abiding citizens. The Correctional Service of Canada must ensure the delivery of programs, including correctional, educational, vocational training, social programs, with a view to promoting rehabilitation and reintegration.</p>
+					</div>
+					<div class="col-xs-12 col-md-6">
+						<h3><a href="#">Conditions of Confinement</a></h3>
+						<p>The Office of the Correctional Investigator monitors conditions of confinement including the quality and quantity of prison food, property and pay, out of cell time, sanitation, climate control, and placements in restrictive housing such as Structured Intervention Units.</p>
+					</div>
+					<div class="col-xs-12 col-md-6">
+						<h3><a href="#">Institutional Security and Safety</a></h3>
+						<p>The Correctional Service of Canada is obligated to use the least restrictive measures consistent with the protection of society, staff, and the offender. The working and living conditions of staff and prisoners must be safe and free from practices that undermine personal dignity.</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="bg-gctheme text-white pb-4 mt-5">
+			<div class="container">
+				<h2 class="h3">Our mission</h2>
+				<p>The mission of the Office of the Correctional Investigator is to ensure the fair and humane treatment of persons serving federal sentences. This is done by drawing attention to human rights obligations and holding CSC accountable for administering federal corrections in a way that is compliant to law, policy and fair decision-making.</p>
+			</div>
+		</section>
+	</main>
+	<footer id="wb-info">
+		<h2 class="wb-inv">About this site</h2>
+		<div class="gc-main-footer">
+			<div class="container">
+				<nav aria-label="OCI compact navigation">
+					<div class="row">
+						<div class="col-xs-12 col-md-4">
+							<h3>About OCI</h3>
+							<ul class="list-unstyled">
+								<li><a href="#">Our Mission and Context</a></li>
+								<li><a href="#">The Correctional Investigator</a></li>
+								<li><a href="#">Acts, Regulations and Policies</a></li>
+								<li><a href="#">Transparency</a></li>
+								<li><a href="#">Corporate Plans and Reports</a></li>
+								<li><a href="#">Contact Us</a></li>
+							</ul>
+						</div>
+						<div class="col-xs-12 col-md-4">
+							<h3>Resources</h3>
+							<ul class="list-unstyled">
+								<li><a href="#">Media Room</a></li>
+								<li><a href="#">Annual Reports</a></li>
+								<li><a href="#">Other Reports</a></li>
+								<li><a href="#">Photo Gallery</a></li>
+							</ul>
+						</div>
+						<div class="col-xs-12 col-md-4">
+							<h3>Contact Us</h3>
+							<p>Your feedback is important to us. Please feel free to contact us by:</p>
+							<ul class="list-unstyled">
+								<li><strong>Mail</strong>: <br>
+								Office of the Correctional Investigator<br>
+								P. O. Box 3421, Station "D"<br>
+								Ottawa ON K1P 6L4</li>
+								<li><strong>Email</strong>: <a href="mailto:org@oci-bec.gc.ca">org@oci-bec.gc.ca</a></li>
+								<li><strong>Phone</strong>: <a href="tel:+18778858848">1-877-885-8848</a></li>
+							</ul>
+						</div>
+					</div>
+				</nav>
+			</div>
+		</div>
+
+		<div class="gc-sub-footer">
+			<div class="container d-flex align-items-center">
+				<nav>
+					<h3 class="wb-inv">Government of Canada Corporate</h3>
+					<ul>
+						<li><a href="https://www.canada.ca/en/transparency/terms.html">Terms and conditions</a></li>
+						<li><a href="https://www.canada.ca/en/transparency/privacy.html">Privacy</a></li>
+					</ul>
+				</nav>
+				<div class="wtrmrk align-self-end">
+					<img src="logo-main_0.jpg" alt="Office of the Correctional Investigator">
+				</div>
+			</div>
+		</div>
+	</footer>
+	{% include resources-inc/footer.html %}
+</body>
+</html>
