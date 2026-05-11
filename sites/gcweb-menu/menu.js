@@ -47,7 +47,7 @@ var componentName = "gcweb-menu",
 			ajaxFetch = elm.querySelector( selectorAjaxed );
 
 			if ( !ajaxFetch ) {
-				onAjaxLoaded( elm.querySelector( "[role=menu]" ) );
+				onAjaxLoaded( elm.querySelector( ".gcweb-menu-ul" ) );
 			}
 
 
@@ -112,8 +112,8 @@ function CloseMenu( elm, force ) {
 
 		// Can the menu be closed?
 		// Get the menu item that has the focus.
-		var currentFocusIsOn = elm.nextElementSibling.querySelector( "[role=menuitem]:focus" );
-		var siblingHasFocus = elm.parentElement.parentElement.querySelector( "[role=menuitem]:focus" );
+		var currentFocusIsOn = elm.nextElementSibling.querySelector( ".gcweb-menu-ul:focus" );
+		var siblingHasFocus = elm.parentElement.parentElement.querySelector( ".gcweb-menu-ul:focus" );
 
 		// Check if we keep the menu open
 		if ( currentFocusIsOn || siblingHasFocus === elm ) {
@@ -166,7 +166,7 @@ $document.on( "focusin", selector + " ul [aria-haspopup]", function( event ) {
 } );
 
 // The user get inside the submenu, we should cancel the "close" with delay event
-$document.on( "mouseenter focusin", selector + " [aria-haspopup] + [role=menu]", function( event ) {
+$document.on( "mouseenter focusin", selector + " [aria-haspopup] + .gcweb-menu-ul", function( event ) {
 
 	// Prevent the menu to collapse
 	// Note: elm.id is already defined because of the mouseenter event of the parent menu element
@@ -215,7 +215,7 @@ $document.on( "click", selector + " [aria-haspopup]", function( event ) {
 			OpenMenu( elm );
 
 			// Focus on the first menu item
-			elmToGiveFocus = elm.nextElementSibling.querySelector( "[role=menuitem]" );
+			elmToGiveFocus = elm.nextElementSibling.querySelector( ".gcweb-menu-li" );
 			elmToGiveFocus.focus();
 			elmToGiveFocus.setAttribute( "tabindex", "0" );
 
@@ -229,7 +229,7 @@ $document.on( "click", selector + " [aria-haspopup]", function( event ) {
 
 // This is for the "most requested" menu item
 function setMnu3LevelOrientationExpandState( isVertical, isExpanded ) {
-	var mnu3Level = document.querySelectorAll( "[role=menu] [role=menu] [role=menuitem][aria-haspopup=true]" ),
+	var mnu3Level = document.querySelectorAll( ".gcweb-menu-ul .gcweb-menu-ul .gcweb-menu-li[aria-haspopup=true]" ),
 		i, i_len = mnu3Level.length,
 		expandState = ( isExpanded ? "true" : "false" ),
 		orientation = ( isVertical ? "vertical" : "horizontal" ),
@@ -238,7 +238,7 @@ function setMnu3LevelOrientationExpandState( isVertical, isExpanded ) {
 	for ( i = 0; i < i_len; i++ ) {
 
 		// Keep it expanded if focus are inside submenu
-		expandStateItem = ( mnu3Level[ i ].nextElementSibling.querySelector( "[role=menuitem]:focus" ) ? "true" : expandState );
+		expandStateItem = ( mnu3Level[ i ].nextElementSibling.querySelector( ".gcweb-menu-li:focus" ) ? "true" : expandState );
 
 		mnu3Level[ i ].setAttribute( "aria-expanded", expandStateItem );
 		mnu3Level[ i ].parentElement.previousElementSibling.setAttribute( "aria-orientation", orientation );
@@ -311,14 +311,14 @@ $document.on( "keydown", function( event ) {
 } );
 
 // Keyboard navigation for each menu item
-$document.on( "keydown", selector + " button, " + selector + " [role=menuitem]", function( event ) {
+$document.on( "keydown", selector + " button, " + selector + " .gcweb-menu-li", function( event ) {
 
 	var elm = event.currentTarget,
 		key = keycode( event.charCode || event.keyCode );
 
 
 	// Get the menu item that has the focus.
-	var currentFocusIsOn = document.querySelector( "[role=menuitem]:focus" ) || elm,
+	var currentFocusIsOn = document.querySelector( ".gcweb-menu-li:focus" ) || elm,
 		parent = currentFocusIsOn.parentElement,
 		grandParent = parent.parentElement,
 		isCurrentButtonMenu = ( currentFocusIsOn.nodeName === "BUTTON" );
@@ -339,17 +339,17 @@ $document.on( "keydown", selector + " button, " + selector + " [role=menuitem]",
 	// FIRST CHILD POPOP
 	var firstChildPopup;
 	if ( currentFocusIsOn.nextElementSibling ) {
-		firstChildPopup = currentFocusIsOn.nextElementSibling.querySelector( "[role='menuitem']" );
+		firstChildPopup = currentFocusIsOn.nextElementSibling.querySelector( ".gcweb-menu-li" );
 	}
 
 	// NEXT MENU ITEM
 	var nextSiblingMenuItem;
 	if ( parent.nextElementSibling ) {
-		nextSiblingMenuItem = parent.nextElementSibling.querySelector( "[role=menuitem]" );
+		nextSiblingMenuItem = parent.nextElementSibling.querySelector( ".gcweb-menu-li" );
 
 		// Check if we have hit a separator, go to the next one. The separator can't be the last item and are not followed by another separator.
 		if ( !nextSiblingMenuItem ) {
-			nextSiblingMenuItem = parent.nextElementSibling.nextElementSibling.querySelector( "[role=menuitem]" );
+			nextSiblingMenuItem = parent.nextElementSibling.nextElementSibling.querySelector( ".gcweb-menu-li" );
 		}
 	} else {
 
@@ -363,9 +363,9 @@ $document.on( "keydown", selector + " button, " + selector + " [role=menuitem]",
 			// The current focus is on the last item of the persistant menu
 			// Should go the next item of the parent menu item (not supported),
 			// but in our use case this is the first item of the parent men
-			nextSiblingMenuItem = grandParent.parentElement.parentElement.querySelector( "[role=menuitem]" );
+			nextSiblingMenuItem = grandParent.parentElement.parentElement.querySelector( ".gcweb-menu-li" );
 		} else {
-			nextSiblingMenuItem = grandParent.querySelector( "[role=menuitem]" );
+			nextSiblingMenuItem = grandParent.querySelector( ".gcweb-menu-li" );
 		}
 	}
 
@@ -375,19 +375,19 @@ $document.on( "keydown", selector + " button, " + selector + " [role=menuitem]",
 	// PREVIOUS MENU ITEM
 	var previousSiblingMenuItem;
 	if ( parent.previousElementSibling ) {
-		previousSiblingMenuItem = parent.previousElementSibling.querySelector( "[role=menuitem]" );
+		previousSiblingMenuItem = parent.previousElementSibling.querySelector( ".gcweb-menu-li" );
 
 		// Check if we have hit a separator. A separator is not the first items
 		if ( !previousSiblingMenuItem ) {
-			previousSiblingMenuItem = parent.previousElementSibling.previousElementSibling.querySelector( "[role=menuitem]" );
+			previousSiblingMenuItem = parent.previousElementSibling.previousElementSibling.querySelector( ".gcweb-menu-li" );
 		}
 	} else {
 
 		// Get the last item, take in consideration one level of persistant open menu
-		if ( !isMobileMode && grandParent.lastElementChild.querySelector( "[role=menuitem]" ).dataset.keepExpanded ) {
+		if ( !isMobileMode && grandParent.lastElementChild.querySelector( ".gcweb-menu-li" ).dataset.keepExpanded ) {
 
 			// The last item is persistant open, get it's last children
-			previousSiblingMenuItem = grandParent.lastElementChild.querySelector( "[role=menuitem]" ).nextElementSibling.lastElementChild.querySelector( "[role=menuitem]" );
+			previousSiblingMenuItem = grandParent.lastElementChild.querySelector( ".gcweb-menu-li" ).nextElementSibling.lastElementChild.querySelector( ".gcweb-menu-li" );
 		} else if ( !isMobileMode && grandParent.previousElementSibling.dataset.keepExpanded && parentPopupBtn ) {
 
 			// Get the parent, this is the first items of a persistant open menu
@@ -395,11 +395,11 @@ $document.on( "keydown", selector + " button, " + selector + " [role=menuitem]",
 		} else if ( isCurrentButtonMenu ) {
 
 			// Get the last menu item
-			previousSiblingMenuItem = currentFocusIsOn.nextElementSibling.lastElementChild.querySelector( "[role=menuitem]" );
+			previousSiblingMenuItem = currentFocusIsOn.nextElementSibling.lastElementChild.querySelector( ".gcweb-menu-li" );
 		} else {
 
 			// Get the last item of the current menu
-			previousSiblingMenuItem = grandParent.lastElementChild.querySelector( "[role=menuitem]" );
+			previousSiblingMenuItem = grandParent.lastElementChild.querySelector( ".gcweb-menu-li" );
 		}
 
 	}
@@ -417,7 +417,7 @@ $document.on( "keydown", selector + " button, " + selector + " [role=menuitem]",
 			} else {
 				isNextSeparatorOrientationVertical = false;
 			}
-			nextSeparatorMenuItem = iteratedItem.nextElementSibling.querySelector( "[role=menuitem]" );
+			nextSeparatorMenuItem = iteratedItem.nextElementSibling.querySelector( ".gcweb-menu-li" );
 			break;
 		}
 	}
@@ -447,7 +447,7 @@ $document.on( "keydown", selector + " button, " + selector + " [role=menuitem]",
 
 	// Ensure we are pointing to the first menu item
 	if ( previousSeparatorMenuItem ) {
-		previousSeparatorMenuItem = previousSeparatorMenuItem.querySelector( "[role=menuitem]" );
+		previousSeparatorMenuItem = previousSeparatorMenuItem.querySelector( ".gcweb-menu-li" );
 	}
 
 	/*
